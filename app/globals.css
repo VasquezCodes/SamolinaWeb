@@ -1,26 +1,147 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Paleta Samolina - Identidad Visual de Marca */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Colores Principales (Marca) */
+  --rosa-fuerte: #D96C8B;        /* Rosa Vibrante (Flor) - Acento principal */
+  --rosa: #E8A87C;               /* Naranja Dorado (Pastel) - Tono dominante */
+  --durazno: #E8A87C;            /* Naranja Dorado - Alias para consistencia */
+  
+  /* Colores de Acento (CTAs) */
+  --verde-agua: #40A798;         /* Turquesa - Botones principales */
+  --menta: #BACCB6;              /* Verde Pistacho - Acento secundario */
+  
+  /* Colores Neutrales (Fondos y Texto) */
+  --crema: #F5EADD;              /* Crema - Fondo secundario */
+  --beige: #FCEFEF;              /* Rosa Pálido - Fondo principal */
+  --marron-suave: #5D4037;       /* Marrón Oscuro - Texto secundario */
+  --tinta: #5D4037;              /* Marrón Oscuro - Texto principal */
+  --outline: #E8A87C;            /* Naranja Dorado - Bordes */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html, body { 
+  @apply bg-[var(--beige)] text-[var(--tinta)] antialiased;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Headings use Poppins */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Smooth Scrolling for Sections */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-[var(--rosa-fuerte)] to-[var(--rosa)] bg-clip-text text-transparent;
+  }
+}
+
+/* Selection Color */
+::selection {
+  background-color: var(--rosa-fuerte);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--rosa-fuerte);
+  color: white;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rosa);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rosa-fuerte);
+}
+
+/* Focus Styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--rosa-fuerte);
+  outline-offset: 2px;
+}
+
+/* Image Loading */
+img {
+  @apply transition-opacity duration-300;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  @apply transition-all duration-300 ease-in-out;
 }
