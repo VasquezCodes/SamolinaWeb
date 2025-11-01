@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,16 +13,29 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-[var(--outline)] shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--rosa-fuerte)] to-[var(--rosa)] group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute inset-0 rounded-full bg-[var(--rosa-fuerte)] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-[var(--outline)] shadow-sm font-poppins">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+        <div className="flex items-center justify-between">
+          {/* Logo Compuesto */}
+          <a href="#inicio" className="flex items-center gap-4 group">
+            {/* Logo con capas superpuestas */}
+            <div className="relative h-16 w-16 md:h-24 md:w-24 group-hover:scale-110 transition-transform duration-300">
+              <Image
+                src="/logo/fondo.png"
+                alt="Fondo logo Samolina"
+                fill
+                className="object-contain drop-shadow-lg"
+                priority
+              />
+              <Image
+                src="/logo/letras.png"
+                alt="Samolina Factory logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-[var(--marron-suave)]">Samolina Factory</span>
+            <span className="text-3xl md:text-4xl font-bold text-[var(--marron-suave)]">Samolina Factory</span>
           </a>
 
           {/* Desktop Navigation */}

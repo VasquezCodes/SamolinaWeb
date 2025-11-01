@@ -1,4 +1,34 @@
+'use client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+
 export default function Servicios() {
+  const imagenesProduccion = [
+    "/produccion_servicios/SP1-2.jpg",
+    "/produccion_servicios/SP1-4.jpg",
+    "/produccion_servicios/SP1-10.jpg",
+    "/produccion_servicios/SP1-34.jpg",
+    "/produccion_servicios/SP1-46.jpg"
+  ];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // Auto-play del carrusel
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % imagenesProduccion.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [imagenesProduccion.length]);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % imagenesProduccion.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + imagenesProduccion.length) % imagenesProduccion.length);
+  };
+
   const servicios = [
     {
       titulo: "Al Mayor",
@@ -72,6 +102,69 @@ export default function Servicios() {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Carrusel de imágenes de producción */}
+        <div className="mt-12 sm:mt-16 md:mt-20">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-10">
+            Nuestra <span className="text-[var(--rosa-fuerte)]">producción</span>
+          </h3>
+          
+          <div className="relative max-w-5xl mx-auto">
+            {/* Carrusel */}
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              {imagenesProduccion.map((imagen, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    index === currentImage ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <Image
+                    src={imagen}
+                    alt={`Producción Samolina ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+              
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+              
+              {/* Botones de navegación */}
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                aria-label="Imagen anterior"
+              >
+                <span className="text-xl sm:text-2xl text-[var(--marron-suave)]">←</span>
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 z-10"
+                aria-label="Siguiente imagen"
+              >
+                <span className="text-xl sm:text-2xl text-[var(--marron-suave)]">→</span>
+              </button>
+            </div>
+            
+            {/* Indicadores */}
+            <div className="flex justify-center gap-2 mt-6">
+              {imagenesProduccion.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentImage 
+                      ? 'w-8 bg-[var(--rosa-fuerte)]' 
+                      : 'w-2 bg-neutral-300 hover:bg-neutral-400'
+                  }`}
+                  aria-label={`Ir a imagen ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* CTA */}

@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <header id="inicio" className="relative overflow-hidden">
+    <header id="inicio" className="relative overflow-hidden mt-28 md:mt-36">
       {/* Mobile Hero - Con collage de imágenes */}
       <div className="md:hidden bg-gradient-to-b from-white to-[var(--beige)] pt-24 pb-20 px-4">
         {/* Content */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--outline)] shadow-sm mb-6">
-            <span className="h-2 w-2 rounded-full bg-[var(--rosa-fuerte)] animate-pulse" />
-            <span className="text-xs font-medium uppercase tracking-wider text-[var(--marron-suave)]">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border-2 border-[var(--outline)] shadow-md mb-6">
+            <span className="h-3 w-3 rounded-full bg-[var(--rosa-fuerte)] animate-pulse" />
+            <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--marron-suave)]">
               Fábrica de comida latina
             </span>
           </div>
@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="row-span-2">
             <div className="relative h-full min-h-[340px] rounded-3xl overflow-hidden shadow-xl bg-white">
               <Image
-                src="/samolina1.jpg"
+                src="/heroImg/SCF-60.jpg"
                 alt="Productos Samolina"
                 fill
                 className="object-cover"
@@ -44,7 +44,7 @@ export default function Hero() {
           <div>
             <div className="relative h-[165px] rounded-3xl overflow-hidden shadow-xl bg-white">
               <Image
-                src="/samolina2.jpg"
+                src="/heroImg/SCF-63.jpg"
                 alt="Comida latina"
                 fill
                 className="object-cover"
@@ -56,7 +56,7 @@ export default function Hero() {
           <div>
             <div className="relative h-[165px] rounded-3xl overflow-hidden shadow-xl bg-white">
               <Image
-                src="/samolina3.jpg"
+                src="/heroImg/SCF-70.jpg"
                 alt="Producción Samolina"
                 fill
                 className="object-cover"
@@ -89,9 +89,9 @@ export default function Hero() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Contenido */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[var(--outline)] shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-[var(--rosa-fuerte)] animate-pulse" />
-                <span className="text-xs font-medium uppercase tracking-wider text-[var(--marron-suave)]">
+              <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white border-2 border-[var(--outline)] shadow-md">
+                <span className="h-3 w-3 rounded-full bg-[var(--rosa-fuerte)] animate-pulse" />
+                <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--marron-suave)]">
                   Fábrica de comida latina
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                 <div className="space-y-4">
                   <div className="relative h-56 lg:h-64 rounded-3xl overflow-hidden shadow-xl">
                     <Image
-                      src="/samolina1.jpg"
+                      src="/heroImg/SCF-60.jpg"
                       alt="Productos Samolina"
                       fill
                       className="object-cover"
@@ -138,7 +138,7 @@ export default function Hero() {
                   </div>
                   <div className="relative h-40 lg:h-48 rounded-3xl overflow-hidden shadow-xl">
                     <Image
-                      src="/samolina2.jpg"
+                      src="/heroImg/SCF-63.jpg"
                       alt="Comida latina Samolina"
                       fill
                       className="object-cover"
@@ -148,7 +148,7 @@ export default function Hero() {
                 <div className="space-y-4 pt-8">
                   <div className="relative h-40 lg:h-48 rounded-3xl overflow-hidden shadow-xl">
                     <Image
-                      src="/samolina3.jpg"
+                      src="/heroImg/SCF-70.jpg"
                       alt="Producción Samolina"
                       fill
                       className="object-cover"
@@ -156,7 +156,7 @@ export default function Hero() {
                   </div>
                   <div className="relative h-56 lg:h-64 rounded-3xl overflow-hidden shadow-xl">
                     <Image
-                      src="/samolina.jpg"
+                      src="/heroImg/SCF-72.jpg"
                       alt="Emprendimiento Samolina"
                       fill
                       className="object-cover"

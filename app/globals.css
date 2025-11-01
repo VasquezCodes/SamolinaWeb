@@ -98,6 +98,10 @@ section {
   .gradient-text {
     @apply bg-gradient-to-r from-[var(--rosa-fuerte)] to-[var(--rosa)] bg-clip-text text-transparent;
   }
+
+  .font-poppins {
+    font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
 }
 
 /* Selection Color */

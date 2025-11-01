@@ -1,26 +1,28 @@
+import Image from 'next/image';
+
 export default function Productos() {
   const productos = [
     {
       nombre: "Empanadas",
-      icono: "🥟",
+      imagen: "/productosImg/empanada.jpg",
       sabores: ["Carne Molida", "Carne Mechada", "Pollo", "Queso", "Jamón y Queso", "Pabellón", "Colombianas"],
       tamaños: ["Pequeñas (10 unidades)", "Grandes (5 unidades)"]
     },
     {
       nombre: "Tequeños",
-      icono: "🥖",
+      imagen: "/productosImg/tequenio.jpg",
       sabores: ["Queso", "Queso con Guayaba", "Masa Madre y Queso", "Yuca y Queso", "Maduro y Queso"],
       tamaños: ["10 unidades", "25 unidades", "50 unidades"]
     },
     {
       nombre: "Pastelitos",
-      icono: "🥐",
+      imagen: "/productosImg/pastelito.jpg",
       sabores: ["Pollo", "Carne Molida", "Carne Molida con Arroz", "Queso", "Queso con Guayaba", "Champiñón con Queso"],
       tamaños: ["Grandes (10 unidades)", "Medianos (25 unidades)"]
     },
     {
       nombre: "Mandocas",
-      icono: "🍩",
+      imagen: "/productosImg/mandioca.jpg",
       sabores: ["Tradicionales"],
       tamaños: ["Pequeñas (10 unidades)", "Grandes (5 unidades)"]
     }
@@ -44,59 +46,84 @@ export default function Productos() {
           {productos.map((producto, index) => (
             <div 
               key={index}
-              className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[var(--outline)] hover:border-[var(--rosa-fuerte)] hover:shadow-2xl transition-all duration-300 group"
+              className="bg-white rounded-3xl overflow-hidden border-2 border-[var(--outline)] hover:border-[var(--rosa-fuerte)] hover:shadow-2xl transition-all duration-300 group"
             >
-              {/* Icono */}
-              <div className="text-5xl sm:text-6xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">
-                {producto.icono}
+              {/* Imagen del producto */}
+              <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                <Image
+                  src={producto.imagen}
+                  alt={producto.nombre}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                {/* Nombre sobre la imagen */}
+                <h3 className="absolute bottom-4 left-4 right-4 text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">
+                  {producto.nombre}
+                </h3>
               </div>
 
-              {/* Nombre */}
-              <h3 className="text-2xl font-bold text-[var(--marron-suave)] mb-4 text-center">
-                {producto.nombre}
-              </h3>
+              {/* Contenido */}
+              <div className="p-6 sm:p-8">
 
-              {/* Sabores */}
-              <div className="mb-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-[var(--rosa-fuerte)] mb-2">
-                  Sabores disponibles:
-                </p>
-                <ul className="space-y-1.5">
-                  {producto.sabores.map((sabor, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-neutral-700">
-                      <span className="text-[var(--rosa-fuerte)] mt-1">•</span>
-                      <span>{sabor}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* Sabores */}
+                <div className="mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--rosa-fuerte)] mb-2">
+                    Sabores disponibles:
+                  </p>
+                  <ul className="space-y-1.5">
+                    {producto.sabores.map((sabor, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-neutral-700">
+                        <span className="text-[var(--rosa-fuerte)] mt-1">•</span>
+                        <span>{sabor}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Tamaños */}
-              <div className="pt-4 border-t border-[var(--outline)]">
-                <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
-                  Presentaciones:
-                </p>
-                <div className="space-y-1">
-                  {producto.tamaños.map((tamaño, i) => (
-                    <p key={i} className="text-xs text-neutral-600">
-                      {tamaño}
-                    </p>
-                  ))}
+                {/* Tamaños */}
+                <div className="pt-4 border-t border-[var(--outline)]">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-2">
+                    Presentaciones:
+                  </p>
+                  <div className="space-y-1">
+                    {producto.tamaños.map((tamaño, i) => (
+                      <p key={i} className="text-xs text-neutral-600">
+                        {tamaño}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Nota adicional */}
-        <div className="mt-12 sm:mt-16 text-center">
-          <div className="inline-block bg-[var(--rosa-fuerte)] rounded-2xl p-6 sm:p-8 text-white shadow-xl">
-            <p className="text-lg sm:text-xl font-semibold mb-2">
-              🎁 Cajas Mixtas Disponibles
-            </p>
-            <p className="text-sm sm:text-base opacity-95">
-              Combina tequeños, empanadas y pastelitos en una sola caja. Incluye salsa tártara.
-            </p>
+        {/* Nota adicional - Cajas Mixtas */}
+        <div className="mt-12 sm:mt-16">
+          <div className="max-w-4xl mx-auto bg-[var(--rosa-fuerte)] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Imagen */}
+              <div className="relative h-64 md:h-auto min-h-[250px]">
+                <Image
+                  src="/productosImg/tablamix.jpg"
+                  alt="Caja Mixta Samolina"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              
+              {/* Contenido */}
+              <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-center text-white">
+                <p className="text-2xl sm:text-3xl font-bold mb-3">
+                  🎁 Cajas Mixtas Disponibles
+                </p>
+                <p className="text-base sm:text-lg opacity-95 leading-relaxed">
+                  Combina tequeños, empanadas y pastelitos en una sola caja. Incluye salsa tártara.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

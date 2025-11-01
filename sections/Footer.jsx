@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -35,8 +37,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-gradient-to-br from-[var(--rosa-fuerte)] to-[var(--rosa)]" />
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="relative h-16 w-16 sm:h-20 sm:w-20">
+                <Image
+                  src="/logo/fondo.png"
+                  alt="Fondo logo Samolina"
+                  fill
+                  className="object-contain drop-shadow-lg"
+                  priority
+                />
+                <Image
+                  src="/logo/letras.png"
+                  alt="Samolina Factory logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
               <span className="text-xl sm:text-2xl font-bold text-[var(--marron-suave)]">Samolina Factory</span>
             </div>
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed mb-4 sm:mb-6">
