@@ -19,15 +19,25 @@ export const metadata = {
   title: "Samolina Factory — Fábrica de comida latina",
   description: "Empanadas, tequeños, pastelitos y mandocas artesanales. Al mayor, maquila y al detal. Altamonte Springs, FL.",
   icons: {
-    icon: '/logo/logo.jpeg',
-    shortcut: '/logo/logo.jpeg',
-    apple: '/logo/logo.jpeg',
+    icon: [
+      { url: '/logo/logo.jpeg', type: 'image/jpeg', sizes: 'any' },
+      { url: '/logo/logo.jpeg', type: 'image/jpeg', sizes: '192x192' }
+    ],
+    shortcut: [
+      { url: '/logo/logo.jpeg', type: 'image/jpeg' }
+    ],
+    apple: [
+      { url: '/logo/logo.jpeg', type: 'image/jpeg', sizes: '180x180' }
+    ]
   },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${poppins.variable} ${inter.variable}`}>
+      <head>
+        <link rel="icon" href="/logo/logo.jpeg" type="image/jpeg" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
