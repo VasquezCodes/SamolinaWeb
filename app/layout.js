@@ -20,11 +20,11 @@ export const metadata = {
   description: "Empanadas, tequeños, pastelitos y mandocas artesanales. Al mayor, maquila y al detal. Altamonte Springs, FL.",
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/favicon.ico', sizes: '32x32' }
+      { url: '/icon.png', type: 'image/png', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '192x192' }
     ],
-    shortcut: ['/favicon.ico'],
-    apple: ['/favicon.ico']
+    shortcut: ['/icon.png'],
+    apple: ['/icon.png']
   },
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${poppins.variable} ${inter.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/icon.png" type="image/png" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
