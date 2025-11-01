@@ -19,9 +19,9 @@ export const metadata = {
   title: "Samolina Factory — Fábrica de comida latina",
   description: "Empanadas, tequeños, pastelitos y mandocas artesanales. Al mayor, maquila y al detal. Altamonte Springs, FL.",
   icons: {
-    icon: '/logo/letras.png',
-    shortcut: '/logo/letras.png',
-    apple: '/logo/letras.png',
+    icon: '/logo/logo.jpeg',
+    shortcut: '/logo/logo.jpeg',
+    apple: '/logo/logo.jpeg',
   },
 };
 

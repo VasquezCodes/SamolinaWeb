@@ -18,20 +18,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo Compuesto */}
           <a href="#inicio" className="flex items-center gap-4 group">
-            {/* Logo con capas superpuestas */}
+            {/* Logo */}
             <div className="relative h-16 w-16 md:h-24 md:w-24 group-hover:scale-110 transition-transform duration-300">
               <Image
-                src="/logo/fondo.png"
-                alt="Fondo logo Samolina"
+                src="/logo/logo.jpeg"
+                alt="Samolina Factory Logo"
                 fill
                 className="object-contain drop-shadow-lg"
-                priority
-              />
-              <Image
-                src="/logo/letras.png"
-                alt="Samolina Factory logo"
-                fill
-                className="object-contain"
                 priority
               />
             </div>

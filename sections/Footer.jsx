@@ -40,17 +40,10 @@ export default function Footer() {
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               <div className="relative h-16 w-16 sm:h-20 sm:w-20">
                 <Image
-                  src="/logo/fondo.png"
-                  alt="Fondo logo Samolina"
-                  fill
-                  className="object-contain drop-shadow-lg"
-                  priority
-                />
-                <Image
-                  src="/logo/letras.png"
+                  src="/logo/logo.jpeg"
                   alt="Samolina Factory logo"
                   fill
-                  className="object-contain"
+                  className="object-contain drop-shadow-lg"
                   priority
                 />
               </div>
