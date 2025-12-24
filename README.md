@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🥟 Samolina Factory
 
-## Getting Started
+> Landing page para Samolina Factory — Fábrica de comida latina artesanal en Altamonte Springs, FL.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16.0.7-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css)
+
+## 📋 Descripción
+
+Landing page moderna y responsive para **Samolina Factory**, especializada en la producción artesanal de comida latina: empanadas, tequeños, pastelitos y mandocas. El sitio presenta servicios de producción al mayor, maquila y venta al detal.
+
+## ✨ Características
+
+- 🎨 Diseño moderno y responsive (mobile-first)
+- ⚡ Construido con Next.js 16 y React 19
+- 🎯 Secciones: Hero, Servicios, Productos, Sobre Nosotros, Contacto
+- 🖼️ Galería de imágenes con estilo bento grid
+- 📱 Optimizado para todos los dispositivos
+
+## 🛠️ Tecnologías
+
+| Tecnología | Versión |
+|------------|---------|
+| Next.js | 16.0.7 |
+| React | 19.2.0 |
+| Tailwind CSS | 3.4.10 |
+
+## 🚀 Instalación
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clonar el repositorio
+git clone https://github.com/VasquezCodes/SamolinaWeb.git
+
+# Entrar al directorio
+cd samolina-web
+
+# Instalar dependencias
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Uso
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+# Modo desarrollo
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Construir para producción
+npm run build
 
-## Learn More
+# Iniciar servidor de producción
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+# Ejecutar linter
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver el resultado.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Estructura del Proyecto
 
-## Deploy on Vercel
+```
+samolina-web/
+├── app/
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.js
+│   └── page.js
+├── components/
+│   ├── Navbar.jsx
+│   └── Tarjeta.jsx
+├── sections/
+│   ├── Hero.jsx
+│   ├── Servicios.jsx
+│   ├── Productos.jsx
+│   ├── Sobre.jsx
+│   ├── Contacto.jsx
+│   └── Footer.jsx
+├── public/
+│   └── heroImg/
+└── ...
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 Licencia
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto es privado y propiedad de Samolina Factory.
+
+---
